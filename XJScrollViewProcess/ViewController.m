@@ -7,21 +7,125 @@
 //
 
 #import "ViewController.h"
+#import "XJTableViewManager.h"
+#import "XJScrollViewProcess.h"
+#import "PlayerRecommendCell.h"
 
 @interface ViewController ()
+
+@property (nonatomic, weak) IBOutlet XJTableViewManager *tableView;
+@property (nonatomic, strong) XJScrollViewProcess *scrollViewProcess;
+@property (nonatomic, strong) XJTableViewDataModel *dataModel;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    __weak typeof(self)weakSelf = self;
+    self.scrollViewProcess = [XJScrollViewProcess initWithScrollView:self.tableView];
+    [self.scrollViewProcess addPullToRefreshWithBlock:^{
+        weakSelf.scrollViewProcess.refreshDataModel = weakSelf.dataModel;
+    }];
+    
+    [self.scrollViewProcess addLoadMoreWithBlock:^{
+        NSLog(@"load moreeerere");
+        weakSelf.scrollViewProcess.dataModel = [weakSelf dataModel2];
+    }];
+    
+    [weakSelf.scrollViewProcess addNetworkStatusChangeBlock:^(NetworkStatus netStatus) {
+       
+        if (netStatus != NotReachable) {
+            weakSelf.scrollViewProcess.refreshDataModel = weakSelf.dataModel;
+        } else {
+            
+        }
+        
+    }];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+
+
+
+
+
+
+
+
+
+
+
+- (XJTableViewDataModel *)dataModel
+{
+    NSArray *data = @[@{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"}
+                      ];
+    
+    NSMutableArray *rows = [NSMutableArray array];
+    for (NSDictionary *obj in data)
+    {
+        PlayerRecommendModel *model = [PlayerRecommendModel new];
+        model.title = obj[@"title"];
+        model.subtitle = obj[@"subtitle"];
+        model.imageName = obj[@"imageName"];
+        XJTableViewCellModel *cellModel = [XJTableViewCellModel
+                                           modelWithReuseIdentifier:[PlayerRecommendCell identifier]
+                                           cellHeight:78.5f
+                                           data:model];
+        [rows addObject:cellModel];
+    }
+    
+    return [XJTableViewDataModel modelWithSection:nil rows:rows];
 }
+
+- (XJTableViewDataModel *)dataModel2
+{
+    NSArray *data = @[@{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"},
+                      @{@"title":@"title", @"subtitle":@"subtitle", @"imageName":@"pic"}
+                      ];
+    
+    NSMutableArray *rows = [NSMutableArray array];
+    for (NSDictionary *obj in data)
+    {
+        PlayerRecommendModel *model = [PlayerRecommendModel new];
+        model.title = obj[@"title"];
+        model.subtitle = obj[@"subtitle"];
+        model.imageName = obj[@"imageName"];
+        XJTableViewCellModel *cellModel = [XJTableViewCellModel
+                                           modelWithReuseIdentifier:[PlayerRecommendCell identifier]
+                                           cellHeight:78.5f
+                                           data:model];
+        [rows addObject:cellModel];
+    }
+    
+    return [XJTableViewDataModel modelWithSection:nil rows:rows];
+}
+
 
 @end

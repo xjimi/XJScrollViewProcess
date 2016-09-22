@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9036228D1D93B96500F465A7 /* XJNetworkStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9036228C1D93B96500F465A7 /* XJNetworkStatusMonitor.m */; };
 		9094C0D01D92309700F17AB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094C0CF1D92309700F17AB5 /* main.m */; };
 		9094C0D31D92309700F17AB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094C0D21D92309700F17AB5 /* AppDelegate.m */; };
 		9094C0D61D92309700F17AB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094C0D51D92309700F17AB5 /* ViewController.m */; };
@@ -15,6 +16,31 @@
 		9094C0DE1D92309700F17AB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9094C0DC1D92309700F17AB5 /* LaunchScreen.storyboard */; };
 		9094C0E91D92309700F17AB5 /* XJScrollViewProcessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094C0E81D92309700F17AB5 /* XJScrollViewProcessTests.m */; };
 		9094C0F41D92309700F17AB5 /* XJScrollViewProcessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094C0F31D92309700F17AB5 /* XJScrollViewProcessUITests.m */; };
+		9094C1071D92384600F17AB5 /* XJScrollViewProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094C1061D92384600F17AB5 /* XJScrollViewProcess.m */; };
+		90AFDC801D925D11009EBC8E /* XJCollectionReusableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC5D1D925D11009EBC8E /* XJCollectionReusableModel.m */; };
+		90AFDC811D925D11009EBC8E /* XJCollectionViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC5F1D925D11009EBC8E /* XJCollectionViewCellModel.m */; };
+		90AFDC821D925D11009EBC8E /* XJCollectionViewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC611D925D11009EBC8E /* XJCollectionViewDataModel.m */; };
+		90AFDC831D925D11009EBC8E /* XJCollectionViewFooterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC631D925D11009EBC8E /* XJCollectionViewFooterModel.m */; };
+		90AFDC841D925D11009EBC8E /* XJCollectionViewHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC651D925D11009EBC8E /* XJCollectionViewHeaderModel.m */; };
+		90AFDC851D925D11009EBC8E /* XJCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC681D925D11009EBC8E /* XJCollectionReusableView.m */; };
+		90AFDC861D925D11009EBC8E /* XJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC6A1D925D11009EBC8E /* XJCollectionViewCell.m */; };
+		90AFDC871D925D11009EBC8E /* XJCollectionViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC6C1D925D11009EBC8E /* XJCollectionViewFooter.m */; };
+		90AFDC881D925D11009EBC8E /* XJCollectionViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC6E1D925D11009EBC8E /* XJCollectionViewHeader.m */; };
+		90AFDC891D925D11009EBC8E /* XJCollectionViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC701D925D11009EBC8E /* XJCollectionViewManager.m */; };
+		90AFDC8A1D925D11009EBC8E /* XJTableViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC741D925D11009EBC8E /* XJTableViewCellModel.m */; };
+		90AFDC8B1D925D11009EBC8E /* XJTableViewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC761D925D11009EBC8E /* XJTableViewDataModel.m */; };
+		90AFDC8C1D925D11009EBC8E /* XJTableViewHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC781D925D11009EBC8E /* XJTableViewHeaderModel.m */; };
+		90AFDC8D1D925D11009EBC8E /* XJTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC7B1D925D11009EBC8E /* XJTableViewCell.m */; };
+		90AFDC8E1D925D11009EBC8E /* XJTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC7D1D925D11009EBC8E /* XJTableViewHeader.m */; };
+		90AFDC8F1D925D11009EBC8E /* XJTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC7F1D925D11009EBC8E /* XJTableViewManager.m */; };
+		90AFDC921D925F2C009EBC8E /* XJScrollViewBaseContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC911D925F2C009EBC8E /* XJScrollViewBaseContent.m */; };
+		90AFDC961D928360009EBC8E /* XJMessageBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC951D928360009EBC8E /* XJMessageBar.m */; };
+		90AFDC9E1D9294EE009EBC8E /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC9B1D9294EE009EBC8E /* UIScrollView+SVInfiniteScrolling.m */; };
+		90AFDC9F1D9294EE009EBC8E /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDC9D1D9294EE009EBC8E /* UIScrollView+SVPullToRefresh.m */; };
+		90AFDCAF1D93845A009EBC8E /* PlayerRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDCAA1D93845A009EBC8E /* PlayerRecommendModel.m */; };
+		90AFDCB01D93845A009EBC8E /* PlayerRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFDCAD1D93845A009EBC8E /* PlayerRecommendCell.m */; };
+		90AFDCB11D93845A009EBC8E /* PlayerRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90AFDCAE1D93845A009EBC8E /* PlayerRecommendCell.xib */; };
+		AB29CAAE12ED108C3E9AD570 /* Pods_XJScrollViewProcess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98E4632E53247A79ED64553 /* Pods_XJScrollViewProcess.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +61,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30AF45269035808AC7A7AA94 /* Pods-XJScrollViewProcess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJScrollViewProcess.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XJScrollViewProcess/Pods-XJScrollViewProcess.debug.xcconfig"; sourceTree = "<group>"; };
+		318BF6C090DD6C4419482F3A /* Pods-XJScrollViewProcess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJScrollViewProcess.release.xcconfig"; path = "Pods/Target Support Files/Pods-XJScrollViewProcess/Pods-XJScrollViewProcess.release.xcconfig"; sourceTree = "<group>"; };
+		9036228B1D93B96500F465A7 /* XJNetworkStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJNetworkStatusMonitor.h; sourceTree = "<group>"; };
+		9036228C1D93B96500F465A7 /* XJNetworkStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJNetworkStatusMonitor.m; sourceTree = "<group>"; };
 		9094C0CB1D92309700F17AB5 /* XJScrollViewProcess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XJScrollViewProcess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9094C0CF1D92309700F17AB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9094C0D11D92309700F17AB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +81,55 @@
 		9094C0EF1D92309700F17AB5 /* XJScrollViewProcessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XJScrollViewProcessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9094C0F31D92309700F17AB5 /* XJScrollViewProcessUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJScrollViewProcessUITests.m; sourceTree = "<group>"; };
 		9094C0F51D92309700F17AB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9094C1051D92384600F17AB5 /* XJScrollViewProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJScrollViewProcess.h; sourceTree = "<group>"; };
+		9094C1061D92384600F17AB5 /* XJScrollViewProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJScrollViewProcess.m; sourceTree = "<group>"; };
+		90AFDC5C1D925D11009EBC8E /* XJCollectionReusableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionReusableModel.h; sourceTree = "<group>"; };
+		90AFDC5D1D925D11009EBC8E /* XJCollectionReusableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionReusableModel.m; sourceTree = "<group>"; };
+		90AFDC5E1D925D11009EBC8E /* XJCollectionViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionViewCellModel.h; sourceTree = "<group>"; };
+		90AFDC5F1D925D11009EBC8E /* XJCollectionViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionViewCellModel.m; sourceTree = "<group>"; };
+		90AFDC601D925D11009EBC8E /* XJCollectionViewDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionViewDataModel.h; sourceTree = "<group>"; };
+		90AFDC611D925D11009EBC8E /* XJCollectionViewDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionViewDataModel.m; sourceTree = "<group>"; };
+		90AFDC621D925D11009EBC8E /* XJCollectionViewFooterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionViewFooterModel.h; sourceTree = "<group>"; };
+		90AFDC631D925D11009EBC8E /* XJCollectionViewFooterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionViewFooterModel.m; sourceTree = "<group>"; };
+		90AFDC641D925D11009EBC8E /* XJCollectionViewHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionViewHeaderModel.h; sourceTree = "<group>"; };
+		90AFDC651D925D11009EBC8E /* XJCollectionViewHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionViewHeaderModel.m; sourceTree = "<group>"; };
+		90AFDC671D925D11009EBC8E /* XJCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionReusableView.h; sourceTree = "<group>"; };
+		90AFDC681D925D11009EBC8E /* XJCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionReusableView.m; sourceTree = "<group>"; };
+		90AFDC691D925D11009EBC8E /* XJCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionViewCell.h; sourceTree = "<group>"; };
+		90AFDC6A1D925D11009EBC8E /* XJCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionViewCell.m; sourceTree = "<group>"; };
+		90AFDC6B1D925D11009EBC8E /* XJCollectionViewFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionViewFooter.h; sourceTree = "<group>"; };
+		90AFDC6C1D925D11009EBC8E /* XJCollectionViewFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionViewFooter.m; sourceTree = "<group>"; };
+		90AFDC6D1D925D11009EBC8E /* XJCollectionViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionViewHeader.h; sourceTree = "<group>"; };
+		90AFDC6E1D925D11009EBC8E /* XJCollectionViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionViewHeader.m; sourceTree = "<group>"; };
+		90AFDC6F1D925D11009EBC8E /* XJCollectionViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJCollectionViewManager.h; sourceTree = "<group>"; };
+		90AFDC701D925D11009EBC8E /* XJCollectionViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJCollectionViewManager.m; sourceTree = "<group>"; };
+		90AFDC731D925D11009EBC8E /* XJTableViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJTableViewCellModel.h; sourceTree = "<group>"; };
+		90AFDC741D925D11009EBC8E /* XJTableViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJTableViewCellModel.m; sourceTree = "<group>"; };
+		90AFDC751D925D11009EBC8E /* XJTableViewDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJTableViewDataModel.h; sourceTree = "<group>"; };
+		90AFDC761D925D11009EBC8E /* XJTableViewDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJTableViewDataModel.m; sourceTree = "<group>"; };
+		90AFDC771D925D11009EBC8E /* XJTableViewHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJTableViewHeaderModel.h; sourceTree = "<group>"; };
+		90AFDC781D925D11009EBC8E /* XJTableViewHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJTableViewHeaderModel.m; sourceTree = "<group>"; };
+		90AFDC7A1D925D11009EBC8E /* XJTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJTableViewCell.h; sourceTree = "<group>"; };
+		90AFDC7B1D925D11009EBC8E /* XJTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJTableViewCell.m; sourceTree = "<group>"; };
+		90AFDC7C1D925D11009EBC8E /* XJTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJTableViewHeader.h; sourceTree = "<group>"; };
+		90AFDC7D1D925D11009EBC8E /* XJTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJTableViewHeader.m; sourceTree = "<group>"; };
+		90AFDC7E1D925D11009EBC8E /* XJTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJTableViewManager.h; sourceTree = "<group>"; };
+		90AFDC7F1D925D11009EBC8E /* XJTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJTableViewManager.m; sourceTree = "<group>"; };
+		90AFDC901D925F2C009EBC8E /* XJScrollViewBaseContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJScrollViewBaseContent.h; sourceTree = "<group>"; };
+		90AFDC911D925F2C009EBC8E /* XJScrollViewBaseContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJScrollViewBaseContent.m; sourceTree = "<group>"; };
+		90AFDC941D928360009EBC8E /* XJMessageBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJMessageBar.h; sourceTree = "<group>"; };
+		90AFDC951D928360009EBC8E /* XJMessageBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJMessageBar.m; sourceTree = "<group>"; };
+		90AFDC991D9294EE009EBC8E /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		90AFDC9A1D9294EE009EBC8E /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		90AFDC9B1D9294EE009EBC8E /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		90AFDC9C1D9294EE009EBC8E /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		90AFDC9D1D9294EE009EBC8E /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		90AFDCA91D93845A009EBC8E /* PlayerRecommendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerRecommendModel.h; sourceTree = "<group>"; };
+		90AFDCAA1D93845A009EBC8E /* PlayerRecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerRecommendModel.m; sourceTree = "<group>"; };
+		90AFDCAC1D93845A009EBC8E /* PlayerRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerRecommendCell.h; sourceTree = "<group>"; };
+		90AFDCAD1D93845A009EBC8E /* PlayerRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerRecommendCell.m; sourceTree = "<group>"; };
+		90AFDCAE1D93845A009EBC8E /* PlayerRecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerRecommendCell.xib; sourceTree = "<group>"; };
+		C98E4632E53247A79ED64553 /* Pods_XJScrollViewProcess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJScrollViewProcess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB29CAAE12ED108C3E9AD570 /* Pods_XJScrollViewProcess.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +158,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03E5A2BE75B5133D119FBBAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C98E4632E53247A79ED64553 /* Pods_XJScrollViewProcess.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9036228A1D93B96500F465A7 /* XJNetworkStatusMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				9036228B1D93B96500F465A7 /* XJNetworkStatusMonitor.h */,
+				9036228C1D93B96500F465A7 /* XJNetworkStatusMonitor.m */,
+			);
+			path = XJNetworkStatusMonitor;
+			sourceTree = "<group>";
+		};
 		9094C0C21D92309700F17AB5 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +182,8 @@
 				9094C0E71D92309700F17AB5 /* XJScrollViewProcessTests */,
 				9094C0F21D92309700F17AB5 /* XJScrollViewProcessUITests */,
 				9094C0CC1D92309700F17AB5 /* Products */,
+				EABDCC4DCEC631E78791EA07 /* Pods */,
+				03E5A2BE75B5133D119FBBAC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +200,14 @@
 		9094C0CD1D92309700F17AB5 /* XJScrollViewProcess */ = {
 			isa = PBXGroup;
 			children = (
+				90AFDC591D925D11009EBC8E /* XJLib */,
+				9094C1011D9230AF00F17AB5 /* XJScrollViewProcess */,
 				9094C0D11D92309700F17AB5 /* AppDelegate.h */,
 				9094C0D21D92309700F17AB5 /* AppDelegate.m */,
 				9094C0D41D92309700F17AB5 /* ViewController.h */,
 				9094C0D51D92309700F17AB5 /* ViewController.m */,
+				90AFDCA71D93845A009EBC8E /* PlayerRecommendCell */,
+				90AFDC971D9294EE009EBC8E /* ThirdParty */,
 				9094C0D71D92309700F17AB5 /* Main.storyboard */,
 				9094C0DA1D92309700F17AB5 /* Assets.xcassets */,
 				9094C0DC1D92309700F17AB5 /* LaunchScreen.storyboard */,
@@ -140,6 +243,172 @@
 			path = XJScrollViewProcessUITests;
 			sourceTree = "<group>";
 		};
+		9094C1011D9230AF00F17AB5 /* XJScrollViewProcess */ = {
+			isa = PBXGroup;
+			children = (
+				9094C1051D92384600F17AB5 /* XJScrollViewProcess.h */,
+				9094C1061D92384600F17AB5 /* XJScrollViewProcess.m */,
+				90AFDC901D925F2C009EBC8E /* XJScrollViewBaseContent.h */,
+				90AFDC911D925F2C009EBC8E /* XJScrollViewBaseContent.m */,
+			);
+			path = XJScrollViewProcess;
+			sourceTree = "<group>";
+		};
+		90AFDC591D925D11009EBC8E /* XJLib */ = {
+			isa = PBXGroup;
+			children = (
+				9036228A1D93B96500F465A7 /* XJNetworkStatusMonitor */,
+				90AFDC931D928360009EBC8E /* XJMessageBar */,
+				90AFDC5A1D925D11009EBC8E /* XJCollectionViewManager */,
+				90AFDC711D925D11009EBC8E /* XJTableViewManager */,
+			);
+			path = XJLib;
+			sourceTree = "<group>";
+		};
+		90AFDC5A1D925D11009EBC8E /* XJCollectionViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDC5B1D925D11009EBC8E /* Model */,
+				90AFDC661D925D11009EBC8E /* View */,
+				90AFDC6F1D925D11009EBC8E /* XJCollectionViewManager.h */,
+				90AFDC701D925D11009EBC8E /* XJCollectionViewManager.m */,
+			);
+			path = XJCollectionViewManager;
+			sourceTree = "<group>";
+		};
+		90AFDC5B1D925D11009EBC8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDC5C1D925D11009EBC8E /* XJCollectionReusableModel.h */,
+				90AFDC5D1D925D11009EBC8E /* XJCollectionReusableModel.m */,
+				90AFDC5E1D925D11009EBC8E /* XJCollectionViewCellModel.h */,
+				90AFDC5F1D925D11009EBC8E /* XJCollectionViewCellModel.m */,
+				90AFDC601D925D11009EBC8E /* XJCollectionViewDataModel.h */,
+				90AFDC611D925D11009EBC8E /* XJCollectionViewDataModel.m */,
+				90AFDC621D925D11009EBC8E /* XJCollectionViewFooterModel.h */,
+				90AFDC631D925D11009EBC8E /* XJCollectionViewFooterModel.m */,
+				90AFDC641D925D11009EBC8E /* XJCollectionViewHeaderModel.h */,
+				90AFDC651D925D11009EBC8E /* XJCollectionViewHeaderModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90AFDC661D925D11009EBC8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDC671D925D11009EBC8E /* XJCollectionReusableView.h */,
+				90AFDC681D925D11009EBC8E /* XJCollectionReusableView.m */,
+				90AFDC691D925D11009EBC8E /* XJCollectionViewCell.h */,
+				90AFDC6A1D925D11009EBC8E /* XJCollectionViewCell.m */,
+				90AFDC6B1D925D11009EBC8E /* XJCollectionViewFooter.h */,
+				90AFDC6C1D925D11009EBC8E /* XJCollectionViewFooter.m */,
+				90AFDC6D1D925D11009EBC8E /* XJCollectionViewHeader.h */,
+				90AFDC6E1D925D11009EBC8E /* XJCollectionViewHeader.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		90AFDC711D925D11009EBC8E /* XJTableViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDC721D925D11009EBC8E /* Model */,
+				90AFDC791D925D11009EBC8E /* View */,
+				90AFDC7E1D925D11009EBC8E /* XJTableViewManager.h */,
+				90AFDC7F1D925D11009EBC8E /* XJTableViewManager.m */,
+			);
+			path = XJTableViewManager;
+			sourceTree = "<group>";
+		};
+		90AFDC721D925D11009EBC8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDC731D925D11009EBC8E /* XJTableViewCellModel.h */,
+				90AFDC741D925D11009EBC8E /* XJTableViewCellModel.m */,
+				90AFDC751D925D11009EBC8E /* XJTableViewDataModel.h */,
+				90AFDC761D925D11009EBC8E /* XJTableViewDataModel.m */,
+				90AFDC771D925D11009EBC8E /* XJTableViewHeaderModel.h */,
+				90AFDC781D925D11009EBC8E /* XJTableViewHeaderModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90AFDC791D925D11009EBC8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDC7A1D925D11009EBC8E /* XJTableViewCell.h */,
+				90AFDC7B1D925D11009EBC8E /* XJTableViewCell.m */,
+				90AFDC7C1D925D11009EBC8E /* XJTableViewHeader.h */,
+				90AFDC7D1D925D11009EBC8E /* XJTableViewHeader.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		90AFDC931D928360009EBC8E /* XJMessageBar */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDC941D928360009EBC8E /* XJMessageBar.h */,
+				90AFDC951D928360009EBC8E /* XJMessageBar.m */,
+			);
+			path = XJMessageBar;
+			sourceTree = "<group>";
+		};
+		90AFDC971D9294EE009EBC8E /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDC981D9294EE009EBC8E /* SVPullToRefresh */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		90AFDC981D9294EE009EBC8E /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDC991D9294EE009EBC8E /* SVPullToRefresh.h */,
+				90AFDC9A1D9294EE009EBC8E /* UIScrollView+SVInfiniteScrolling.h */,
+				90AFDC9B1D9294EE009EBC8E /* UIScrollView+SVInfiniteScrolling.m */,
+				90AFDC9C1D9294EE009EBC8E /* UIScrollView+SVPullToRefresh.h */,
+				90AFDC9D1D9294EE009EBC8E /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
+		90AFDCA71D93845A009EBC8E /* PlayerRecommendCell */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDCA81D93845A009EBC8E /* model */,
+				90AFDCAB1D93845A009EBC8E /* views */,
+			);
+			path = PlayerRecommendCell;
+			sourceTree = "<group>";
+		};
+		90AFDCA81D93845A009EBC8E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDCA91D93845A009EBC8E /* PlayerRecommendModel.h */,
+				90AFDCAA1D93845A009EBC8E /* PlayerRecommendModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		90AFDCAB1D93845A009EBC8E /* views */ = {
+			isa = PBXGroup;
+			children = (
+				90AFDCAC1D93845A009EBC8E /* PlayerRecommendCell.h */,
+				90AFDCAD1D93845A009EBC8E /* PlayerRecommendCell.m */,
+				90AFDCAE1D93845A009EBC8E /* PlayerRecommendCell.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		EABDCC4DCEC631E78791EA07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				30AF45269035808AC7A7AA94 /* Pods-XJScrollViewProcess.debug.xcconfig */,
+				318BF6C090DD6C4419482F3A /* Pods-XJScrollViewProcess.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +416,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9094C0F81D92309700F17AB5 /* Build configuration list for PBXNativeTarget "XJScrollViewProcess" */;
 			buildPhases = (
+				30F8D247777650D2EEDF7782 /* [CP] Check Pods Manifest.lock */,
 				9094C0C71D92309700F17AB5 /* Sources */,
 				9094C0C81D92309700F17AB5 /* Frameworks */,
 				9094C0C91D92309700F17AB5 /* Resources */,
+				FC4723CAD656D9EAD4D8F21F /* [CP] Embed Pods Frameworks */,
+				94B778987820DF3F97595E2E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,6 +518,7 @@
 				9094C0DE1D92309700F17AB5 /* LaunchScreen.storyboard in Resources */,
 				9094C0DB1D92309700F17AB5 /* Assets.xcassets in Resources */,
 				9094C0D91D92309700F17AB5 /* Main.storyboard in Resources */,
+				90AFDCB11D93845A009EBC8E /* PlayerRecommendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,14 +538,86 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		30F8D247777650D2EEDF7782 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		94B778987820DF3F97595E2E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XJScrollViewProcess/Pods-XJScrollViewProcess-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC4723CAD656D9EAD4D8F21F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XJScrollViewProcess/Pods-XJScrollViewProcess-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9094C0C71D92309700F17AB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90AFDC861D925D11009EBC8E /* XJCollectionViewCell.m in Sources */,
+				90AFDC8B1D925D11009EBC8E /* XJTableViewDataModel.m in Sources */,
+				90AFDCB01D93845A009EBC8E /* PlayerRecommendCell.m in Sources */,
+				90AFDC811D925D11009EBC8E /* XJCollectionViewCellModel.m in Sources */,
+				90AFDC831D925D11009EBC8E /* XJCollectionViewFooterModel.m in Sources */,
 				9094C0D61D92309700F17AB5 /* ViewController.m in Sources */,
+				90AFDCAF1D93845A009EBC8E /* PlayerRecommendModel.m in Sources */,
+				90AFDC8E1D925D11009EBC8E /* XJTableViewHeader.m in Sources */,
+				90AFDC9E1D9294EE009EBC8E /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				9094C0D31D92309700F17AB5 /* AppDelegate.m in Sources */,
+				90AFDC921D925F2C009EBC8E /* XJScrollViewBaseContent.m in Sources */,
+				90AFDC8F1D925D11009EBC8E /* XJTableViewManager.m in Sources */,
+				90AFDC821D925D11009EBC8E /* XJCollectionViewDataModel.m in Sources */,
+				90AFDC8D1D925D11009EBC8E /* XJTableViewCell.m in Sources */,
+				90AFDC8A1D925D11009EBC8E /* XJTableViewCellModel.m in Sources */,
 				9094C0D01D92309700F17AB5 /* main.m in Sources */,
+				90AFDC961D928360009EBC8E /* XJMessageBar.m in Sources */,
+				90AFDC881D925D11009EBC8E /* XJCollectionViewHeader.m in Sources */,
+				90AFDC8C1D925D11009EBC8E /* XJTableViewHeaderModel.m in Sources */,
+				90AFDC871D925D11009EBC8E /* XJCollectionViewFooter.m in Sources */,
+				90AFDC841D925D11009EBC8E /* XJCollectionViewHeaderModel.m in Sources */,
+				90AFDC801D925D11009EBC8E /* XJCollectionReusableModel.m in Sources */,
+				9036228D1D93B96500F465A7 /* XJNetworkStatusMonitor.m in Sources */,
+				90AFDC9F1D9294EE009EBC8E /* UIScrollView+SVPullToRefresh.m in Sources */,
+				9094C1071D92384600F17AB5 /* XJScrollViewProcess.m in Sources */,
+				90AFDC891D925D11009EBC8E /* XJCollectionViewManager.m in Sources */,
+				90AFDC851D925D11009EBC8E /* XJCollectionReusableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +756,7 @@
 		};
 		9094C0F91D92309700F17AB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30AF45269035808AC7A7AA94 /* Pods-XJScrollViewProcess.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XJScrollViewProcess/Info.plist;
@@ -422,6 +768,7 @@
 		};
 		9094C0FA1D92309700F17AB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 318BF6C090DD6C4419482F3A /* Pods-XJScrollViewProcess.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XJScrollViewProcess/Info.plist;
@@ -496,6 +843,7 @@
 				9094C0FA1D92309700F17AB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9094C0FB1D92309700F17AB5 /* Build configuration list for PBXNativeTarget "XJScrollViewProcessTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +852,7 @@
 				9094C0FD1D92309700F17AB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9094C0FE1D92309700F17AB5 /* Build configuration list for PBXNativeTarget "XJScrollViewProcessUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +861,7 @@
 				9094C1001D92309700F17AB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
