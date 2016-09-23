@@ -201,11 +201,13 @@ UIEdgeInsets scrollViewOriginalContentInsets;
     if(self.state != SVInfiniteScrollingStateLoading && self.enabled)
     {
         if(contentOffset.y <= 0) return;
-
+        
         BOOL isDragging = YES;
         BOOL isDraggingTriggered = YES;
-        CGFloat threshold_rate = 2.5f;
-        if (self.needDragToLoadMore) {
+        CGFloat threshold_rate = 1.5f;
+        if (self.useOriginalLoadMore)
+        {
+            //遵循原有流程 需要滑到底手放開後才load more
             isDragging = self.scrollView.isDragging;
             isDraggingTriggered = !self.scrollView.isDragging;
             threshold_rate = 1.0f;
@@ -213,7 +215,7 @@ UIEdgeInsets scrollViewOriginalContentInsets;
         
         CGFloat scrollViewContentHeight = self.scrollView.contentSize.height;
         CGFloat scrollOffsetThreshold = scrollViewContentHeight - (self.scrollView.bounds.size.height * threshold_rate);
-        
+        if (scrollOffsetThreshold <= 0) scrollOffsetThreshold = scrollViewContentHeight - (self.scrollView.bounds.size.height * 1);
         if(isDraggingTriggered && self.state == SVInfiniteScrollingStateTriggered)
             self.state = SVInfiniteScrollingStateLoading;
         else if(contentOffset.y > scrollOffsetThreshold && self.state == SVInfiniteScrollingStateStopped && isDragging)

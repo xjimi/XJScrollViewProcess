@@ -37,10 +37,6 @@ typedef NS_ENUM(NSInteger, XJScrollViewState) {
 
 + (instancetype)initWithScrollView:(UIScrollView *)scrollView;
 
-+ (instancetype)initWithScrollView:(UIScrollView *)scrollView
-         addPullToRefreshWithBlock:(void (^)(void))pullToRefreshBlock
-              addLoadMoreWithBlock:(void (^)(void))loadMoreBlock;
-
 - (void)addPullToRefreshWithBlock:(void (^)(void))pullToRefreshBlock;
 
 - (void)addLoadMoreWithBlock:(void (^)(void))loadMoreBlock;

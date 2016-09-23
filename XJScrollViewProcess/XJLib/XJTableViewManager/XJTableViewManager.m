@@ -123,7 +123,6 @@
             [curDataModel.rows addObjectsFromArray:dataModel.rows];
             NSInteger sectionNum = _data.count - 1;
             NSInteger itemNum = curDataModel.rows.count;
-            NSLog(@"sectionNum : %ld ::: itemNum : %ld", (long)sectionNum, (long)itemNum);
             NSInteger numberOfRows = [self numberOfRowsInSection:sectionNum];
             
             NSMutableArray *indexPaths = [NSMutableArray array];
@@ -131,7 +130,12 @@
                 [indexPaths addObject:[NSIndexPath indexPathForItem:i inSection:sectionNum]];
             }
             
+            [UIView setAnimationsEnabled:NO];
+            [self beginUpdates];
             [self insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+            [self endUpdates];
+            [UIView setAnimationsEnabled:YES];
+
         }
     }
 }

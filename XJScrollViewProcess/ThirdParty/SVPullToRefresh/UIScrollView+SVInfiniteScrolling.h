@@ -47,7 +47,7 @@ typedef NSUInteger SVInfiniteScrollingState;
  *  XJIMI 增加
  */
 
-@property (nonatomic, assign) BOOL needDragToLoadMore;
+@property (nonatomic, assign) BOOL useOriginalLoadMore;
 
 - (void)disableInfiniteScrolling;
 - (void)resetOriginalBottomInset:(CGFloat)bottomInset;

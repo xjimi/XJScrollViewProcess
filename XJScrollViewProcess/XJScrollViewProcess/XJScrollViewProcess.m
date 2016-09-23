@@ -18,7 +18,7 @@
 @property (nonatomic, copy)   void (^refreshBlock)(void);
 @property (nonatomic, copy)   void (^pullToRefreshBlock)(void);
 @property (nonatomic, copy)   void (^loadMoreBlock)(void);
-@property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
+@property (nonatomic, assign, getter=isDataFinish) BOOL dataFinish;
 @property (nonatomic, strong) XJNetworkStatusMonitor *networkStatusMonitor;
 
 @end
@@ -27,29 +27,19 @@
 
 + (instancetype)initWithScrollView:(UIScrollView *)scrollView
 {
-    return [[XJScrollViewProcess alloc] initWithScrollView:scrollView
-                                 addPullToRefreshWithBlock:nil
-                                      addLoadMoreWithBlock:nil];
-}
-
-+ (instancetype)initWithScrollView:(UIScrollView *)scrollView
-         addPullToRefreshWithBlock:(void (^)(void))pullToRefreshBlock
-              addLoadMoreWithBlock:(void (^)(void))loadMoreBlock
-{
-    return [[XJScrollViewProcess alloc] initWithScrollView:scrollView
-                                 addPullToRefreshWithBlock:pullToRefreshBlock
-                                      addLoadMoreWithBlock:loadMoreBlock];
+    return [[XJScrollViewProcess alloc] initWithScrollView:scrollView];
 }
 
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView
-         addPullToRefreshWithBlock:(void (^)(void))pullToRefreshBlock
-              addLoadMoreWithBlock:(void (^)(void))loadMoreBlock
 {
     self = [super init];
     if (self)
     {
         _baseScrollView = scrollView;
-        _baseContent = [XJScrollViewBaseContent initWithScrollView:scrollView addEmptyDataDidTapBlock:^{
+        _baseContent = [XJScrollViewBaseContent
+                        initWithScrollView:scrollView
+                        addEmptyDataDidTapBlock:^
+        {
             
         }];
         self.state = XJScrollViewStateInit;
@@ -92,7 +82,8 @@
             if (![_baseContent isEmptyData])
             {
                 [_baseContent hideMessage];
-                _baseScrollView.infiniteScrollingView.needDragToLoadMore = NO;
+                NSLog(@"%@", _baseScrollView.infiniteScrollingView);
+                _baseScrollView.infiniteScrollingView.useOriginalLoadMore = NO;
             }
         }
         
@@ -104,14 +95,21 @@
 
 - (void)addPullToRefreshWithBlock:(void (^)(void))pullToRefreshBlock
 {
-    if (!pullToRefreshBlock || _baseScrollView.pullToRefreshView) return;
-    
+    if (!pullToRefreshBlock) return;
     _pullToRefreshBlock = pullToRefreshBlock;
     __weak typeof(self) weakSelf = self;
     [_baseScrollView addPullToRefreshWithActionHandler:^{
         
-        weakSelf.state = XJScrollViewStateLoadMoreLoadingData;
-        if (weakSelf.pullToRefreshBlock) weakSelf.pullToRefreshBlock();
+        if ([weakSelf isLoadingData])
+        {
+            [weakSelf.baseScrollView.pullToRefreshView stopAnimating];
+            [weakSelf.baseContent showMessage:@"is loading data"];
+        }
+        else
+        {
+            weakSelf.state = XJScrollViewStateRefreshLoadingData;
+            if (weakSelf.pullToRefreshBlock) weakSelf.pullToRefreshBlock();
+        }
         
     }];
     
@@ -121,27 +119,39 @@
     [_baseScrollView.pullToRefreshView setSubtitle:nil forState:SVPullToRefreshStateAll];
 }
 
-- (void)addLoadMoreWithBlock:(void (^)(void))loadMoreBlock
-{
-    if (!loadMoreBlock || _baseScrollView.infiniteScrollingView) return;
-    
+- (void)addLoadMoreWithBlock:(void (^)(void))loadMoreBlock {
     _loadMoreBlock = loadMoreBlock;
+}
+
+- (void)addLoadMore
+{
+    if (!_loadMoreBlock || _baseScrollView.infiniteScrollingView) return;
+    NSLog(@" addLOAD-MORE");
     __weak typeof(self)weakSelf = self;
     [_baseScrollView addInfiniteScrollingWithActionHandler:^{
         
-        weakSelf.state = XJScrollViewStateLoadMoreLoadingData;
-        
-        if (weakSelf.dataLoaded)
-        {
-            NSLog(@"最後資料了~~~");
-            weakSelf.dataModel = weakSelf.dataTemp.lastObject;
-            return;
-        }
+        NSLog(@"--------------- trigger load more-----------------");
 
-        if (weakSelf.loadMoreBlock) weakSelf.loadMoreBlock();
+        if ([weakSelf isLoadingData])
+        {
+            [weakSelf.baseContent showMessage:@"資料讀取中...請稍候"];
+        }
+        else
+        {
+            weakSelf.state = XJScrollViewStateLoadMoreLoadingData;
+            [weakSelf.baseContent hideMessage];
+            if (weakSelf.isDataFinish)
+            {
+                NSLog(@"最後資料了~~~");
+                weakSelf.dataModel = weakSelf.dataTemp.lastObject;
+                return;
+            }
+            
+            if (weakSelf.loadMoreBlock) weakSelf.loadMoreBlock();
+        }
         
     }];
-    weakSelf.baseScrollView.showsInfiniteScrolling = NO;
+
     [weakSelf.baseScrollView.infiniteScrollingView setActivityIndicatorViewStyle:_loadMoreIndicatorStyle];
 }
 
@@ -178,13 +188,20 @@
             break;
         case XJScrollViewStatePullToRefreshFinish:
         {
+            _dataOffset = 0;
+            _dataFinish = NO;
+            [_dataTemp removeAllObjects];
             [_baseScrollView.pullToRefreshView stopAnimating];
         }
             break;
         case XJScrollViewStateLoadMoreShow:
         {
+            NSLog(@"XJScrollViewStateLoadMore -- Show ");
+            [self addLoadMore];
+            [_baseScrollView.infiniteScrollingView stopAnimating];
+            //[_baseScrollView.infiniteScrollingView showIndicatorView];
+            //[_baseScrollView.infiniteScrollingView disableInfiniteScrolling];
             _baseScrollView.showsInfiniteScrolling = YES;
-            [_baseScrollView.infiniteScrollingView showIndicatorView];
         }
             break;
         case XJScrollViewStateLoadMoreLoadingData:
@@ -193,7 +210,7 @@
             break;
         case XJScrollViewStateLoadMoreDisable:
         {
-            [_baseScrollView.infiniteScrollingView disableInfiniteScrolling];
+            _baseScrollView.showsInfiniteScrolling = NO;
         }
             break;
     }
@@ -211,6 +228,9 @@
 
 - (void)setRefreshDataModel:(id)dataModel
 {
+    if (dataModel) {
+        _baseScrollView.showsPullToRefresh = YES;
+    }
     self.state = XJScrollViewStatePullToRefreshFinish;
     self.dataModel = dataModel;
 }
@@ -223,11 +243,10 @@
 
 - (XJTableViewDataModel *)processTableViewDataModel:(XJTableViewDataModel *)dataModel
 {
-    if (!self.isDataLoaded)
+    if (!self.isDataFinish)
     {
-        NSLog(@" rows.count : %ld  dataLimit : %ld", (long)dataModel.rows.count, (long)self.dataLimit);
         if (dataModel.rows.count < self.dataLimit) {
-            _dataLoaded = YES;
+            _dataFinish = YES;
         }
         
         XJTableViewDataModel *dataModel_temps = _dataTemp.lastObject;
@@ -286,7 +305,6 @@
     
     if (_state == XJScrollViewStatePullToRefreshFinish)
     {
-        _dataOffset = 0;
         tableView.data = @[dataModel].mutableCopy;
     }
     else
@@ -299,14 +317,13 @@
     {
         _dataOffset += self.dataLimit;
         self.state = XJScrollViewStateLoadMoreShow;
+
     }
     else
     {
         NSLog(@"load more end");
         self.state = XJScrollViewStateLoadMoreDisable;
     }
-    
 }
-
 
 @end

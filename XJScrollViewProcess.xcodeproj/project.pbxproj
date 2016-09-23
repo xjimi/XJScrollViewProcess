@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		903205451D952B3600448818 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 903205441D952B3600448818 /* AFAppDotNetAPIClient.m */; };
 		9036228D1D93B96500F465A7 /* XJNetworkStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9036228C1D93B96500F465A7 /* XJNetworkStatusMonitor.m */; };
 		9094C0D01D92309700F17AB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094C0CF1D92309700F17AB5 /* main.m */; };
 		9094C0D31D92309700F17AB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094C0D21D92309700F17AB5 /* AppDelegate.m */; };
@@ -63,6 +64,8 @@
 /* Begin PBXFileReference section */
 		30AF45269035808AC7A7AA94 /* Pods-XJScrollViewProcess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJScrollViewProcess.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XJScrollViewProcess/Pods-XJScrollViewProcess.debug.xcconfig"; sourceTree = "<group>"; };
 		318BF6C090DD6C4419482F3A /* Pods-XJScrollViewProcess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJScrollViewProcess.release.xcconfig"; path = "Pods/Target Support Files/Pods-XJScrollViewProcess/Pods-XJScrollViewProcess.release.xcconfig"; sourceTree = "<group>"; };
+		903205431D952B3600448818 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
+		903205441D952B3600448818 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
 		9036228B1D93B96500F465A7 /* XJNetworkStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJNetworkStatusMonitor.h; sourceTree = "<group>"; };
 		9036228C1D93B96500F465A7 /* XJNetworkStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJNetworkStatusMonitor.m; sourceTree = "<group>"; };
 		9094C0CB1D92309700F17AB5 /* XJScrollViewProcess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XJScrollViewProcess.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +169,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		903205421D952B3600448818 /* Networking Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				903205431D952B3600448818 /* AFAppDotNetAPIClient.h */,
+				903205441D952B3600448818 /* AFAppDotNetAPIClient.m */,
+			);
+			path = "Networking Extensions";
+			sourceTree = "<group>";
+		};
 		9036228A1D93B96500F465A7 /* XJNetworkStatusMonitor */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +218,7 @@
 				9094C0D21D92309700F17AB5 /* AppDelegate.m */,
 				9094C0D41D92309700F17AB5 /* ViewController.h */,
 				9094C0D51D92309700F17AB5 /* ViewController.m */,
+				903205421D952B3600448818 /* Networking Extensions */,
 				90AFDCA71D93845A009EBC8E /* PlayerRecommendCell */,
 				90AFDC971D9294EE009EBC8E /* ThirdParty */,
 				9094C0D71D92309700F17AB5 /* Main.storyboard */,
@@ -611,6 +624,7 @@
 				90AFDC881D925D11009EBC8E /* XJCollectionViewHeader.m in Sources */,
 				90AFDC8C1D925D11009EBC8E /* XJTableViewHeaderModel.m in Sources */,
 				90AFDC871D925D11009EBC8E /* XJCollectionViewFooter.m in Sources */,
+				903205451D952B3600448818 /* AFAppDotNetAPIClient.m in Sources */,
 				90AFDC841D925D11009EBC8E /* XJCollectionViewHeaderModel.m in Sources */,
 				90AFDC801D925D11009EBC8E /* XJCollectionReusableModel.m in Sources */,
 				9036228D1D93B96500F465A7 /* XJNetworkStatusMonitor.m in Sources */,
