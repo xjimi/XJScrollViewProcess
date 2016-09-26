@@ -103,7 +103,11 @@
     [self reloadData];
 }
 
-- (void)insertData:(NSArray *)data
+- (void)insertData:(NSArray *)data {
+    [self insertData:data withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)insertData:(NSArray *)data withRowAnimation:(UITableViewRowAnimation)animation
 {
     if (!_data) _data = [NSMutableArray array];
     
@@ -115,7 +119,13 @@
         {
             [_data addObject:dataModel];
             NSInteger sectionNum = _data.count - 1;
-            [self insertSections:[NSIndexSet indexSetWithIndex:sectionNum] withRowAnimation:UITableViewRowAnimationNone];
+            if (animation != UITableViewRowAnimationNone) {
+                [self beginUpdates];
+                [self insertSections:[NSIndexSet indexSetWithIndex:sectionNum] withRowAnimation:UITableViewRowAnimationNone];
+                [self endUpdates];
+            } else {
+                [self reloadData];
+            }
         }
         else if (dataModel.rows.count)
         {
@@ -130,12 +140,13 @@
                 [indexPaths addObject:[NSIndexPath indexPathForItem:i inSection:sectionNum]];
             }
             
-            [UIView setAnimationsEnabled:NO];
-            [self beginUpdates];
-            [self insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-            [self endUpdates];
-            [UIView setAnimationsEnabled:YES];
-
+            if (animation != UITableViewRowAnimationNone) {
+                [self beginUpdates];
+                [self insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+                [self endUpdates];
+            } else {
+                [self reloadData];
+            }
         }
     }
 }

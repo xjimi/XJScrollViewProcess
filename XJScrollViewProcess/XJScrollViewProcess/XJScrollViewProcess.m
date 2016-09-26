@@ -152,7 +152,8 @@
         
     }];
 
-    [weakSelf.baseScrollView.infiniteScrollingView setActivityIndicatorViewStyle:_loadMoreIndicatorStyle];
+    _baseScrollView.infiniteScrollingView.useOriginalLoadMore = NO;
+    [_baseScrollView.infiniteScrollingView setActivityIndicatorViewStyle:_loadMoreIndicatorStyle];
 }
 
 - (BOOL)isLoadingData

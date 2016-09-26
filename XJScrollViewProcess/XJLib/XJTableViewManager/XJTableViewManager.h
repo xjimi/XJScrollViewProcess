@@ -40,6 +40,7 @@ typedef void (^XJScrollViewWillBeginDraggingBlock) (UIScrollView *scrollView);
 - (void)addScrollViewWillBeginDraggingBlock:(XJScrollViewWillBeginDraggingBlock)scrollViewWillBeginDraggingBlock;
 
 - (void)insertData:(NSArray *)data;
+- (void)insertData:(NSArray *)data withRowAnimation:(UITableViewRowAnimation)animation;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
