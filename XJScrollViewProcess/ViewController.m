@@ -29,13 +29,13 @@
 {
     [super viewDidLoad];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.dataLimitDisplay = 10;
+    self.dataLimitDisplay = 25;
     self.scrollViewProcess = [XJScrollViewProcess initWithScrollView:self.tableView];
     self.scrollViewProcess.dataLimitDisplay = self.dataLimitDisplay;
     __weak typeof(self)weakSelf = self;
     [self.scrollViewProcess addPullToRefreshWithBlock:^{
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             weakSelf.scrollViewProcess.refreshDataModel = weakSelf.dataModel;
         });
         
@@ -43,18 +43,19 @@
     
     [self.scrollViewProcess addLoadMoreWithBlock:^{
 
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            /*
             NSInteger rows = [weakSelf.tableView numberOfRowsInSection:0];
             if (rows == self.dataLimitDisplay * 2) {
                 [weakSelf create_dataModel3];
                 weakSelf.scrollViewProcess.dataModel = weakSelf.dataModel3;
 
             } else {
-                [weakSelf create_dataModel2];
-                weakSelf.scrollViewProcess.dataModel = weakSelf.dataModel2;
-
             }
+             */
+            [weakSelf create_dataModel2];
+            weakSelf.scrollViewProcess.dataModel = weakSelf.dataModel2;
+            
         });
             
     }];
@@ -62,7 +63,7 @@
     [weakSelf.scrollViewProcess addNetworkStatusChangeBlock:^(NetworkStatus netStatus) {
        
         if (netStatus != NotReachable) {
-            weakSelf.scrollViewProcess.refreshDataModel = weakSelf.dataModel;
+            weakSelf.scrollViewProcess.refreshDataModel = nil;
         } else {
             
         }
@@ -110,7 +111,7 @@
 - (XJTableViewDataModel *)dataModel
 {
     NSMutableArray *rows = [NSMutableArray array];
-    for (int i = 0; i < self.dataLimitDisplay*2 ; i++)
+    for (int i = 0; i < self.dataLimitDisplay*5 ; i++)
     {
         NSDictionary *obj = @{@"title":[NSString stringWithFormat:@"title : %d ", i ], @"subtitle":@"subtitle", @"imageName":@"pic"};
         PlayerRecommendModel *model = [PlayerRecommendModel new];
@@ -130,7 +131,7 @@
 - (void)create_dataModel2
 {
     NSMutableArray *rows = [NSMutableArray array];
-    for (int i = 0; i < self.dataLimitDisplay*2 ; i++)
+    for (int i = 0; i < 5 ; i++)
     {
         NSDictionary *obj = @{@"title":[NSString stringWithFormat:@"title 2 - : %d ", i ], @"subtitle":@"subtitle", @"imageName":@"pic"};
         PlayerRecommendModel *model = [PlayerRecommendModel new];

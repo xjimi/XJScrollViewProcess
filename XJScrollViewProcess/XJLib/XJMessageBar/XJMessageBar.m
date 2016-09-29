@@ -16,7 +16,8 @@
 @property (nonatomic, strong) NSTimer *autoDismissTimer;
 @property (nonatomic, assign) BOOL dismissWhenTouch;
 @property (nonatomic, weak) UIView *view;
-
+@property (nonatomic, assign) BOOL isTopShowing;
+@property (nonatomic, assign) BOOL isBottomShowing;
 
 @end
 
@@ -137,7 +138,7 @@
         [weakSelf setNeedsLayout];
         [weakSelf layoutIfNeeded];
 
-        CGRect messageBarFrame = self.messageView.frame;
+        CGRect messageBarFrame = weakSelf.messageView.frame;
         messageBarFrame.origin.y = 0.0f;
         [UIView animateWithDuration:0.4 delay:0 options:(7 << 16) animations:^{
             
@@ -161,11 +162,12 @@
     __weak typeof(self)weakSelf = self;
     [self hideBottomWithCompletion:^{
         
+        weakSelf.isBottomShowing = NO;
         weakSelf.messageLabel.text = message;
         [weakSelf setNeedsLayout];
         [weakSelf layoutIfNeeded];
         
-        CGRect messageViewFrame = self.messageView.frame;
+        CGRect messageViewFrame = weakSelf.messageView.frame;
         messageViewFrame.origin.y = 0;
         [UIView animateWithDuration:0.4 delay:0 options:(7 << 16) animations:^{
             
@@ -197,6 +199,7 @@
         
     } completion:^(BOOL finished) {
         
+        self.isBottomShowing = NO;
         self.userInteractionEnabled = NO;
         if (completion) completion();
         
@@ -213,12 +216,14 @@
 
     CGRect messageBarFrame = self.messageView.frame;
     messageBarFrame.origin.y = -messageBarFrame.size.height;
+
     [UIView animateWithDuration:0.4 delay:0 options:(7 << 16) animations:^{
         
         self.messageView.frame = messageBarFrame;
         
     } completion:^(BOOL finished) {
         
+        self.isTopShowing = NO;
         self.userInteractionEnabled = NO;
         if (completion) completion();
         
@@ -234,8 +239,6 @@
 - (void)tapMessageBar {
     if (self.dismissWhenTouch) [self hide];
 }
-
-
 
 - (void)removeMessageBar
 {
