@@ -131,7 +131,7 @@
 
 - (void)addLoadMore
 {
-    if (!_loadMoreBlock || _baseScrollView.infiniteScrollingView) return;
+    if (_baseScrollView.infiniteScrollingView) return;
     __weak typeof(self)weakSelf = self;
     [_baseScrollView addInfiniteScrollingWithActionHandler:^{
         
@@ -248,6 +248,7 @@
     if (!_baseScrollView.showsPullToRefresh) {
         _baseScrollView.showsPullToRefresh = YES;
     }
+    
     self.state = XJScrollViewStatePullToRefreshFinish;
     self.dataModel = dataModel;
 }
