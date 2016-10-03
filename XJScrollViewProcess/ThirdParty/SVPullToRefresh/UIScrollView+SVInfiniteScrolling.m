@@ -32,6 +32,8 @@ static CGFloat const SVInfiniteScrollingViewHeight = 50;
 @property (nonatomic, assign) CGFloat originalBottomInset;
 @property (nonatomic, assign) BOOL wasTriggeredByUser;
 @property (nonatomic, assign) BOOL isObserving;
+@property (nonatomic, assign) CGFloat preContentOffsetY;
+@property (nonatomic, strong) UIView *reTryIndicatorView;
 
 - (void)resetScrollViewContentInset;
 - (void)setScrollViewContentInsetForInfiniteScrolling;
@@ -200,29 +202,47 @@ UIEdgeInsets scrollViewOriginalContentInsets;
 {
     if(self.state != SVInfiniteScrollingStateLoading && self.enabled)
     {
-        if(contentOffset.y <= 0) return;
-        
-        BOOL isDragging = YES;
-        BOOL isDraggingTriggered = YES;
-        CGFloat threshold_rate = 1.5f;
-        if (self.useOriginalLoadMore)
+        if(contentOffset.y > 0)
         {
-            //遵循原有流程 需要滑到底手放開後才load more
-            isDragging = self.scrollView.isDragging;
-            isDraggingTriggered = !self.scrollView.isDragging;
-            threshold_rate = 1.0f;
+            BOOL isDragging = YES;
+            BOOL isDraggingTriggered = YES;
+            CGFloat threshold_rate = 1.5f;
+            if (self.useOriginalLoadMore)
+            {
+                //遵循原有流程 需要滑到底手放開後才load more
+                isDragging = self.scrollView.isDragging;
+                isDraggingTriggered = !self.scrollView.isDragging;
+                threshold_rate = 1.0f;
+            }
+            
+            CGFloat scrollViewContentHeight = self.scrollView.contentSize.height;
+            CGFloat scrollOffsetThreshold = scrollViewContentHeight - (self.scrollView.bounds.size.height * threshold_rate);
+            if (scrollOffsetThreshold <= 0) scrollOffsetThreshold = scrollViewContentHeight - (self.scrollView.bounds.size.height * 1);
+            if(isDraggingTriggered && self.state == SVInfiniteScrollingStateTriggered)
+            {
+                self.state = SVInfiniteScrollingStateLoading;
+                NSLog(@"SVInfiniteScrollingState -- Loading ");
+
+            }
+            else if(contentOffset.y > scrollOffsetThreshold
+                    && (self.state == SVInfiniteScrollingStateStopped || self.state == SVInfiniteScrollingStateReTry)
+                    && (_preContentOffsetY < contentOffset.y)
+                    && isDragging)
+            {
+                NSLog(@"%f > %f", _preContentOffsetY , contentOffset.y);
+                self.state = SVInfiniteScrollingStateTriggered;
+                NSLog(@"SVInfiniteScrollingState -- Triggered ");
+
+            }
+            else if(contentOffset.y < scrollOffsetThreshold  && self.state != SVInfiniteScrollingStateStopped)
+            {
+                self.state = SVInfiniteScrollingStateStopped;
+                NSLog(@"SVInfiniteScrollingState -- Stopped ");
+            }
         }
-        
-        CGFloat scrollViewContentHeight = self.scrollView.contentSize.height;
-        CGFloat scrollOffsetThreshold = scrollViewContentHeight - (self.scrollView.bounds.size.height * threshold_rate);
-        if (scrollOffsetThreshold <= 0) scrollOffsetThreshold = scrollViewContentHeight - (self.scrollView.bounds.size.height * 1);
-        if(isDraggingTriggered && self.state == SVInfiniteScrollingStateTriggered)
-            self.state = SVInfiniteScrollingStateLoading;
-        else if(contentOffset.y > scrollOffsetThreshold && self.state == SVInfiniteScrollingStateStopped && isDragging)
-            self.state = SVInfiniteScrollingStateTriggered;
-        else if(contentOffset.y < scrollOffsetThreshold  && self.state != SVInfiniteScrollingStateStopped)
-            self.state = SVInfiniteScrollingStateStopped;
     }
+    
+    _preContentOffsetY = contentOffset.y;
 }
 
 #pragma mark - Getters
@@ -327,7 +347,8 @@ UIEdgeInsets scrollViewOriginalContentInsets;
 
 - (void)disableInfiniteScrolling
 {
-    if (self.scrollView.infiniteScrollingView.isObserving) {
+    if (self.scrollView.infiniteScrollingView.isObserving)
+    {
         [self.activityIndicatorView stopAnimating];
         [self.scrollView removeObserver:self.scrollView.infiniteScrollingView forKeyPath:@"contentOffset"];
         [self.scrollView removeObserver:self.scrollView.infiniteScrollingView forKeyPath:@"contentSize"];
@@ -362,5 +383,25 @@ UIEdgeInsets scrollViewOriginalContentInsets;
     [self.activityIndicatorView startAnimating];
 }
 
+- (void)showReTryIndicatorView
+{
+    [self setCustomView:self.reTryIndicatorView forState:SVInfiniteScrollingStateReTry];
+    self.state = SVInfiniteScrollingStateReTry;
+    CGRect viewBounds = CGRectMake(0, 0, 44, 44);
+    CGPoint origin = CGPointMake(roundf((self.bounds.size.width-viewBounds.size.width)/2), roundf((self.bounds.size.height-viewBounds.size.height)/2));
+    [self.reTryIndicatorView setFrame:CGRectMake(origin.x, origin.y, viewBounds.size.width, viewBounds.size.height)];
+}
+
+- (UIView *)reTryIndicatorView
+{
+    if(!_reTryIndicatorView)
+    {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"PullToRefreshArrow"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(triggerRefresh) forControlEvents:UIControlEventTouchUpInside];
+        _reTryIndicatorView = btn;
+    }
+    return _reTryIndicatorView;
+}
 
 @end

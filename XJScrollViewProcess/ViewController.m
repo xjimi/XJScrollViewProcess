@@ -36,15 +36,15 @@
     [self.scrollViewProcess addPullToRefreshWithBlock:^{
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            weakSelf.scrollViewProcess.refreshDataModel = weakSelf.dataModel;
+            weakSelf.scrollViewProcess.refreshDataModel = nil;
         });
         
     }];
-    /*
+    
     [self.scrollViewProcess addLoadMoreWithBlock:^{
 
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-     
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            /*
             NSInteger rows = [weakSelf.tableView numberOfRowsInSection:0];
             if (rows == self.dataLimitDisplay * 2) {
                 [weakSelf create_dataModel3];
@@ -52,18 +52,18 @@
 
             } else {
             }
-             //
+             /*/
             [weakSelf create_dataModel2];
-            weakSelf.scrollViewProcess.dataModel = weakSelf.dataModel2;
+            weakSelf.scrollViewProcess.dataModel = nil;
             
         });
             
     }];
-    */
+    
     [weakSelf.scrollViewProcess addNetworkStatusChangeBlock:^(NetworkStatus netStatus) {
        
         if (netStatus != NotReachable) {
-            weakSelf.scrollViewProcess.refreshDataModel = nil;
+            weakSelf.scrollViewProcess.refreshDataModel = weakSelf.dataModel;
         } else {
             
         }
@@ -71,13 +71,10 @@
     }];
 
     
-    /*
-     NSURLSessionTask *task = [ViewController globalTimelinePostsWithBlock:^(NSArray *posts, NSError *error) {
-     }];
-     [task resume];*/
+    
+     //[ViewController globalTimelinePostsWithBlock:^(NSArray *posts, NSError *error) { }];
 
 }
-
 
 
 

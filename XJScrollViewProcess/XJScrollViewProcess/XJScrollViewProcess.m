@@ -20,6 +20,7 @@
 @property (nonatomic, copy)   void (^loadMoreBlock)(void);
 @property (nonatomic, assign, getter=isDataFinish) BOOL dataFinish;
 @property (nonatomic, strong) XJNetworkStatusMonitor *networkStatusMonitor;
+@property (nonatomic, strong) UIView *arrow;
 
 @end
 
@@ -241,6 +242,7 @@
 {
     if (!dataModel)
     {
+        [_baseScrollView.pullToRefreshView stopAnimating];
         self.state = XJScrollViewStateNetworkError;
         return;
     }
@@ -256,6 +258,9 @@
 - (void)setDataModel:(id)dataModel
 {
     if (!dataModel) {
+        [_baseScrollView.infiniteScrollingView stopAnimating];
+        [_baseScrollView.infiniteScrollingView showReTryIndicatorView];
+        
         self.state = XJScrollViewStateNetworkError;
         return;
     }

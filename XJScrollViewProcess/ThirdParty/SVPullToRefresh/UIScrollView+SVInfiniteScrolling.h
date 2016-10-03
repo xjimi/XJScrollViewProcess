@@ -26,6 +26,7 @@ enum {
 	SVInfiniteScrollingStateStopped = 0,
     SVInfiniteScrollingStateTriggered,
     SVInfiniteScrollingStateLoading,
+    SVInfiniteScrollingStateReTry,
     SVInfiniteScrollingStateAll = 10
 };
 
@@ -53,5 +54,6 @@ typedef NSUInteger SVInfiniteScrollingState;
 - (void)resetOriginalBottomInset:(CGFloat)bottomInset;
 - (void)refreshIndicatorView;
 - (void)showIndicatorView;
+- (void)showReTryIndicatorView;
 
 @end
